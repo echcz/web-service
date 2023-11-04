@@ -63,6 +63,7 @@ Dockerfile # Docker镜像构建脚本
 docker-compose.yml # Docker Compose 容器编排脚本
 k8s.yml # K8S容器编排脚本
 Jenkinsfile # Jenkins 流水线定义脚本
+qodana.yaml # 静态代码分析配置
 README.md # 说明文档
 ```
 

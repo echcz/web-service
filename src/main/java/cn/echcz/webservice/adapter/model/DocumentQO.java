@@ -28,7 +28,7 @@ public record DocumentQO(
     public PageVO<Document> query(DocumentRepository.DocumentQuerier querier) {
         querier.filter(filter -> {
             if (!Strings.isNullOrEmpty(name)) {
-                filter.nameField().like("%" + name + "%");
+                filter.nameField().likeMid(name);
             }
             if (Objects.nonNull(createTimeMin)) {
                 filter.createTimeField().ge(createTimeMin);

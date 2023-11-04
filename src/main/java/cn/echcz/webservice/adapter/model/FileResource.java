@@ -4,7 +4,6 @@ import cn.echcz.webservice.usecase.service.FileWrapper;
 import org.springframework.core.io.InputStreamResource;
 
 import java.io.IOException;
-import java.util.Objects;
 
 /**
  * 文件资源，封装文件数据流，用于文件下载
@@ -24,7 +23,6 @@ public class FileResource extends InputStreamResource {
 
     @Override
     public long contentLength() throws IOException {
-        Long fileSize = fileWrapper.getFileSize();
-        return Objects.isNull(fileSize) ? -1L : fileSize;
+        return fileWrapper.getFileSize();
     }
 }

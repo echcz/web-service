@@ -85,9 +85,51 @@ public interface QueryField<T> {
     }
 
     /**
+     * 匹配前缀
+     */
+    default void likeLift(String prefix) {
+        like(prefix + "%");
+    }
+
+    /**
+     * 匹配后缀
+     */
+    default void likeRight(String suffix) {
+        like("%" + suffix);
+    }
+
+    /**
+     * 匹配中缀
+     */
+    default void likeMid(String substr) {
+        like("%" + substr + "%");
+    }
+
+    /**
      * 不匹配
      */
     default void notLike(String pattern) {
         throw new UnsupportedOperationException(this.getClass().getName() + ".notLike() is unsupported");
+    }
+
+    /**
+     * 不匹配前缀
+     */
+    default void notLikeLeft(String prefix) {
+        notLike(prefix + "%");
+    }
+
+    /**
+     * 不匹配后缀
+     */
+    default void notLikeRight(String suffix) {
+        notLike("%" + suffix);
+    }
+
+    /**
+     * 不匹配中缀
+     */
+    default void notLikeMid(String substr) {
+        notLike("%" + substr + "%");
     }
 }

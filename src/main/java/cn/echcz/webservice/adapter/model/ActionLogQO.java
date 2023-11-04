@@ -40,16 +40,16 @@ public record ActionLogQO(
                 filter.tenantNameField().eq(tenantName);
             }
             if (!Strings.isNullOrEmpty(group)) {
-                filter.groupField().like("%" + group + "%");
+                filter.groupField().likeMid(group);
             }
             if (!Strings.isNullOrEmpty(name)) {
-                filter.nameField().like("%" + name + "%");
+                filter.nameField().likeMid(name);
             }
             if (Objects.nonNull(type)) {
                 filter.typeField().eq(type);
             }
             if (!Strings.isNullOrEmpty(actorName)) {
-                filter.actorNameField().like("%" + actorName + "%");
+                filter.actorNameField().likeMid(actorName);
             }
             if (Objects.nonNull(actionTimeMin)) {
                 filter.actionTimeField().ge(actionTimeMin);
